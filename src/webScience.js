@@ -2,6 +2,9 @@
 // Note that the order of modules matters. When adding a new
 // module, it should come after dependencies.
 
+import browser from 'webextension-polyfill'
+export { browser }
+
 import * as inline from "./inline.js"
 export { inline }
 
