@@ -18,7 +18,8 @@
         "rollup": "^2.41.4",
         "rollup-plugin-copy": "^3.4.0",
         "tldts": "^5.7.25",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "webextension-polyfill": "^0.8.0"
     },
     "devDependencies": {
         "eslint": "^8.1.0",
