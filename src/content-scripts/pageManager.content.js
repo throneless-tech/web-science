@@ -418,7 +418,6 @@ import { fromMonotonicClock } from "../timing.js";
 
     // Send the page visit start event on the window pageshow event
     window.addEventListener("pageshow", (event) => {
-        console.log("pageshow");
         pageVisitStart(fromMonotonicClock(window.performance.timeOrigin, false));
     })
 
@@ -426,7 +425,6 @@ import { fromMonotonicClock } from "../timing.js";
     // using the timestamp for the pagehide event on the global
     // monotonic clock 
     window.addEventListener("pagehide", (event) => {
-        console.log("pagehide");
         pageVisitStop(fromMonotonicClock(event.timeStamp, true));
     });
     
