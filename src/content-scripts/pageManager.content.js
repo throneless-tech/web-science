@@ -416,13 +416,15 @@ import { fromMonotonicClock } from "../timing.js";
         delete window.pageManagerHasLoaded;
     }
 
-    // Send the page visit start event for the first time
-    pageVisitStart(fromMonotonicClock(window.performance.timeOrigin, false));
+    // Send the page visit start event on the window pageshow event
+    window.addEventListener("pageshow", (event) => {
+        pageVisitStart(fromMonotonicClock(window.performance.timeOrigin, false));
+    })
 
-    // Send the page visit stop event on the window unload event,
-    // using the timestamp for the unload event on the global
+    // Send the page visit stop event on the window pagehide event,
+    // using the timestamp for the pagehide event on the global
     // monotonic clock 
-    window.addEventListener("unload", (event) => {
+    window.addEventListener("pagehide", (event) => {
         pageVisitStop(fromMonotonicClock(event.timeStamp, true));
     });
     
